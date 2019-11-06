@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DocumentService } from 'src/app/services/document.service';
 import { Subscription } from 'rxjs';
-import { Document } from 'src/app/models/document';
 import { startWith } from 'rxjs/operators';
+
+import { Document } from '@document/models/document';
+import { DocumentService } from '@document/services/document.service';
 
 @Component({
   selector: 'app-document',

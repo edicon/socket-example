@@ -6,7 +6,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireFunctionsModule, FunctionsRegionToken } from '@angular/fire/functions';
-import { AngularFirePerformanceModule } from '@angular/fire/performance';
+// import { AngularFirePerformanceModule } from '@angular/fire/performance';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { AngularFirePerformanceModule } from '@angular/fire/performance';
     AngularFireFunctionsModule,
     AngularFireStorageModule,
     AngularFireMessagingModule,
-    AngularFirePerformanceModule
+    // AngularFirePerformanceModule
   ],
   exports: [
     AngularFireModule,
@@ -25,7 +25,7 @@ import { AngularFirePerformanceModule } from '@angular/fire/performance';
     AngularFireFunctionsModule,
     AngularFireMessagingModule,
     AngularFireStorageModule,
-    AngularFirePerformanceModule
+    // AngularFirePerformanceModule
   ],
 })
 export class AppFirebaseModule { }
