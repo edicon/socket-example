@@ -8,6 +8,8 @@ import { AngularFireModule } from '@angular/fire';
 
 import { HomeLazyLoadModule } from './home/home-lazy-load.module';
 import { DocumentModule } from './modules/document/document.module';
+import { LoginModule } from './modules/login/login.module';
+
 import { AppComponent } from './app.component';
 
 import { environment } from '@env/environment';
@@ -25,6 +27,7 @@ import { environment } from '@env/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig, 'app-mbm'),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     // Feature Modules
+    LoginModule,
     // HomeLazyLoadModule,
     DocumentModule
   ],

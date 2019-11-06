@@ -11,29 +11,40 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // the plugin exposes the two libraries as well. You can use those:
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 
+import { LoginComponent } from './components/login/login.component';
+
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    {
-      scopes: [
-        'public_profile',
-        'email',
-        'user_likes',
-        'user_friends'
-      ],
-      customParameters: {
-        'auth_type': 'reauthenticate'
-      },
-      provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
-    },
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    firebase.auth.GithubAuthProvider.PROVIDER_ID,
     {
       requireDisplayName: false,
       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
     },
-    firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    {
+      provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+      recaptchaParameters: {
+        type: 'image', // 'audio'
+        size: 'normal', // 'invisible' or 'compact'
+        badge: 'bottomleft' //' bottomright' or 'inline' applies to invisible.
+      },
+      defaultCountry: 'KR',
+    },
+    // {
+    //   scopes: [
+    //     'public_profile',
+    //     'email',
+    //     'user_likes',
+    //     'user_friends'
+    //   ],
+    //   customParameters: {
+    //     'auth_type': 'reauthenticate'
+    //   },
+    //   provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    // },
+    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
     firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
   ],
   tosUrl: '<your-tos-link>',
@@ -42,11 +53,16 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
 };
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LoginComponent
+  ],
   imports: [
     CommonModule,
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+  ],
+  exports: [
+    LoginComponent
   ]
 })
 export class LoginModule { }
