@@ -14,6 +14,9 @@ export const environment = {
     appId: '1:1079498986469:web:0ae054570310a15ecf950c',
     measurementId: 'G-JZCPWRL4E1'
   },
+  socket: {
+    url: 'http://localhost:4444'
+  }
 };
 
 /*
