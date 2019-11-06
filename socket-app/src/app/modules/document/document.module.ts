@@ -7,10 +7,12 @@ import { DocumentRoutingModule } from './document-routing.module';
 
 import { DocumentComponent } from '@document/components/document/document.component';
 import { DocumentListComponent } from '@document/components/document-list/document-list.component';
+import { DocumentLayoutComponent } from '@document/document-layout.component';
 
 
 @NgModule({
   declarations: [
+    DocumentLayoutComponent,
     DocumentComponent,
     DocumentListComponent,
   ],
@@ -21,6 +23,7 @@ import { DocumentListComponent } from '@document/components/document-list/docume
     DocumentRoutingModule
   ],
   exports: [
+    DocumentLayoutComponent,
     DocumentComponent,
     DocumentListComponent,
   ]
