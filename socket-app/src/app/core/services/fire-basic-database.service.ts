@@ -12,13 +12,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class BasicDatabaseService {
 
   total: number;
-  countSubject = new BehaviorSubject(0);
+  countSubject$ = new BehaviorSubject(0);
   count$: Observable<number>;
 
   constructor(
     private database: AngularFireDatabase,
     ) {
-      this.count$ = this.countSubject.asObservable();
+      this.count$ = this.countSubject$.asObservable();
   }
 
   // Basic CURD Method

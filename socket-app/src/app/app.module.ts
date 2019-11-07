@@ -18,8 +18,6 @@ import { environment } from '@env/environment';
 @NgModule({
   declarations: [
     AppComponent,
-    // DocumentListComponent,
-    // DocumentComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +27,6 @@ import { environment } from '@env/environment';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     // Feature Modules
     AppRoutingModule,
-    // HomeLazyLoadModule,
-    // LoginModule,
-    // DocumentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MbmComponent } from './mbm.component';
 
-const routes: Routes = [{ path: '', component: MbmComponent }];
+const routes: Routes = [
+  { path: '', component: MbmComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -9,9 +9,9 @@ const appRoutes: Routes = [
       loadChildren: () => import('./modules/login/login.module').then( m => m.LoginModule)},
     { path: 'mbm',
       loadChildren: () => import('./modules/mbm/mbm.module').then(m => m.MbmModule) },
-    {path: 'document',
+    { path: 'document',
       loadChildren: () => import('./modules/document/document.module').then( m => m.DocumentModule)},
-    // {path: '**', redirectTo: 'login'},
+    {path: '**', redirectTo: 'mbm'},
 ];
 
 @NgModule({
