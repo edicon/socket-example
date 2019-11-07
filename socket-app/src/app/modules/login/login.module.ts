@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { LoginRoutingModule } from './login-routing.module';
-
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 // import { FirebaseUIModule } from 'firebaseui-angular';
 // import * as firebase from 'firebase/app';
 // import * as firebaseui from 'firebaseui';
@@ -12,7 +11,10 @@ import { LoginRoutingModule } from './login-routing.module';
 // the plugin exposes the two libraries as well. You can use those:
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 
+import { AppMaterialModule } from '@core/modules/app-material.module';
+import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './components/login/login.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -22,7 +24,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
     },
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
     {
       provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
       recaptchaParameters: {
@@ -48,19 +50,24 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
     firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
   ],
-  tosUrl: '<your-tos-link>',
-  privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
-  credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
+  // tosUrl: '<your-tos-link>',
+  // privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
+  // credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
 };
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    UserInfoComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+
+    AppMaterialModule,
     LoginRoutingModule
   ],
   exports: [

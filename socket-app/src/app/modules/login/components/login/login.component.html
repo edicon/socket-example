@@ -1,4 +1,8 @@
-<firebase-ui
-  (signInSuccessWithAuthResult)="signInSuccess($event)"
-  (signInFailure)="signInError($event)">
-</firebase-ui>
+<div class="container"
+  fxLayout="column" fxLayoutAlign="center center">
+  <h2> mBm Login</h2>
+  <firebase-ui
+    (signInSuccessWithAuthResult)="signInSuccess($event)"
+    (signInFailure)="signInError($event)">
+  </firebase-ui>
+</div>

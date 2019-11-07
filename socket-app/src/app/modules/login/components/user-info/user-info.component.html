@@ -1,0 +1,34 @@
+<div class="container"
+  fxLayout="column" fxLayoutAlign="center center">
+  <h3>사용자 등록</h3>
+  <mat-form-field>
+    <input matInput placeholder="국가"
+      [(ngModel)]="userInfo.nation">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="성별" [(ngModel)]="userInfo.nation"
+      (selectionChange)="selectSex($event)">
+      <mat-option value="male">남자</mat-option>
+      <mat-option value="female">여자</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="나이"
+      [(ngModel)]="userInfo.age">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="지역"
+      [(ngModel)]="userInfo.region">
+  </mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+    <button mat-raised-button color="accent"
+      (click)="onCancelUserInfo()">취소
+    </button>
+    <button mat-raised-button color="primary"
+      (click)="onRegisterUserInfo()">등록
+    </button>
+  </div>
+</div>
