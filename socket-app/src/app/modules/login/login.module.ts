@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginRoutingModule } from './login-routing.module';
 
 // import { FirebaseUIModule } from 'firebaseui-angular';
 // import * as firebase from 'firebase/app';
@@ -27,7 +28,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
       recaptchaParameters: {
         type: 'image', // 'audio'
         size: 'normal', // 'invisible' or 'compact'
-        badge: 'bottomleft' //' bottomright' or 'inline' applies to invisible.
+        badge: 'bottomleft' // ' bottomright' or 'inline' applies to invisible.
       },
       defaultCountry: 'KR',
     },
@@ -59,7 +60,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   imports: [
     CommonModule,
     AngularFireAuthModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    LoginRoutingModule
   ],
   exports: [
     LoginComponent
