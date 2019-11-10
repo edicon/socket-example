@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { environment } from '@env/environment';
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full'},
+    { path: '', redirectTo: 'socket', pathMatch: 'full'},
     {path: 'login',
       loadChildren: () => import('./modules/login/login.module').then( m => m.LoginModule)},
     { path: 'mbm',

@@ -15,7 +15,8 @@ export const environment = {
     measurementId: 'G-JZCPWRL4E1'
   },
   socket: {
-    url: 'http://localhost:4444'
+    url: 'http://192.168.11.3:52200'
+    // url: 'http://localhost:4444'
   }
 };
 

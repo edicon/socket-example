@@ -6,7 +6,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AngularFireModule } from '@angular/fire';
 import { AppRoutingModule } from './app-routing.module';
-import { AppFirebaseModule } from './core/modules/app-firebase.module';
+import { AppCoreModule } from './core/app-core.module';
+import { SocketModule } from './modules/socket/socket.module';
 
 import { AppComponent } from './app.component';
 
@@ -23,8 +24,9 @@ import { environment } from '@env/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig, 'app-mbm'),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     // Feature Modules
-    AppFirebaseModule,
     AppRoutingModule,
+    AppCoreModule,
+    SocketModule
   ],
   providers: [],
   bootstrap: [AppComponent]

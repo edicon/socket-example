@@ -1,17 +1,25 @@
 import { Injectable } from '@angular/core';
 
 import { Socket } from 'ngx-socket-io';
-
 import { Document } from '../models/document';
+
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DocumentService {
-  currentDocument = this.socket.fromEvent<Document>('document');
-  documents = this.socket.fromEvent<string[]>('documents');
 
-  constructor(private socket: Socket) { }
+  currentDocument: any; //  = this.socket.fromEvent<Document>('document');
+  documents: any; //  = this.socket.fromEvent<string[]>('documents');
+
+  constructor(private socket: Socket) {
+    this.currentDocument = this.socket.fromEvent<Document>('document');
+    this.documents = this.socket.fromEvent<string[]>('documents');
+    if ( !environment.production ) {
+      console.log( this.currentDocument, this.documents );
+    }
+  }
 
   getDocument(id: string) {
     this.socket.emit('getDoc', id);
