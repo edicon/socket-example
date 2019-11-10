@@ -1,3 +1,4 @@
+import { AppMaterialModule } from '@core/modules/app-material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -12,10 +13,14 @@ import { SocketModule } from './modules/socket/socket.module';
 import { AppComponent } from './app.component';
 
 import { environment } from '@env/environment';
+import { DemoComponent } from './demo/demo.component';
+import { MbmInfoComponent } from './demo/device-info/mbm-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DemoComponent,
+    MbmInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ import { environment } from '@env/environment';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     // Feature Modules
     AppRoutingModule,
+    AppMaterialModule,
     AppCoreModule,
     SocketModule
   ],
