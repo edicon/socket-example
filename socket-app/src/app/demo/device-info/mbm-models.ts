@@ -1,12 +1,13 @@
-export interface MbmMessage {
+export interface MbmInfo {
+  date:  Object;
   start: string;
   type: string; // D/A
-  size: string;
+  size: number;
   macAddr: string;
   word: string; // W
   audio: number;
   spell: string;
-  crc: string;
+  crc?: string;
 }
 
 export interface DeviceInfo {

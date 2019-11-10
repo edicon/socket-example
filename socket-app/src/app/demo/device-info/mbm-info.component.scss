@@ -1,0 +1,63 @@
+.admin-container {
+  height: 100%;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  overflow-y: hidden;
+}
+
+.table-container {
+  height: 100%!important;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+}
+
+table tr.mat-row {
+  height: 100px;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+  text-align: center;
+}
+
+.noClass{
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  text-align: center;
+  cursor: pointer;
+}
+
+.noDate{
+  flex: 0 0 25% !important;
+  width: 25% !important;
+  text-align: center;
+}
+
+.noType{
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  text-align: center;
+}
+
+.noWord{
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  text-align: center;
+}
+
+.noAudio{
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  text-align: center;
+}
+
+.noSpell{
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  text-align: center;
+}
+
