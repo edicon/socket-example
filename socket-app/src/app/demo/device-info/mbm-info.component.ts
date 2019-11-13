@@ -57,6 +57,7 @@ export class MbmInfoComponent implements OnInit, OnDestroy {
 
     if ( !environment.production ) {
       this.pageSizeOptions = [5, 10, 20, 100];
+      console.log('UID', this.uid);
     }
     this.isMobile = this.checkMobile();
     this.user$ = this.angularFireAuth.authState;

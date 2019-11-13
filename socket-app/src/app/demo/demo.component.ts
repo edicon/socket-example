@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';;
 
 import { switchMap } from 'rxjs/operators';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-demo',
@@ -9,13 +10,18 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./demo.component.scss']
 })
 export class DemoComponent implements OnInit {
+
   uid: string;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router, ) { }
 
   ngOnInit() {
-    let uid = this.route.snapshot.paramMap.get('id');
+    this.uid = this.route.snapshot.paramMap.get('id');
+    if ( !environment.production ) {
+      console.log(this.uid);
+    }
   }
 
 }
