@@ -7,13 +7,13 @@ import { environment } from '@env/environment';
 const appRoutes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
     { path: 'demo/:id', component: DemoComponent },
-    {path: 'login',
+    { path: 'login',
       loadChildren: () => import('./modules/login/login.module').then( m => m.LoginModule)},
     { path: 'mbm',
       loadChildren: () => import('./modules/mbm/mbm.module').then(m => m.MbmModule) },
     { path: 'document',
       loadChildren: () => import('./modules/document/document.module').then( m => m.DocumentModule)},
-    {path: '**', redirectTo: 'login'},
+    { path: '**', redirectTo: 'login'},
 ];
 
 @NgModule({
