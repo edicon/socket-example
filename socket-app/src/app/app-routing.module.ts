@@ -6,7 +6,7 @@ import { environment } from '@env/environment';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
-    { path: 'demo', component: DemoComponent },
+    { path: 'demo/:id', component: DemoComponent },
     {path: 'login',
       loadChildren: () => import('./modules/login/login.module').then( m => m.LoginModule)},
     { path: 'mbm',

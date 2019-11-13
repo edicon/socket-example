@@ -64,7 +64,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe( userInfo => {
         if ( userInfo ) {
           // this.router.navigate(['mbm']);
-          this.router.navigate(['demo']);
+          this.router.navigate([`demo/${uid}`]);
+          // this.router.navigate(['demo/', { id: uid}]);
         } else {
           this.router.navigate(['login/userInfo']);
         }

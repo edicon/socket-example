@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, Inject, ViewChild, Pipe } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, Inject, ViewChild, Pipe, Input } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatPaginator, MatTableDataSource, MatSort, MatSelectionListChange } from '@angular/material';
 import { PageEvent} from '@angular/material/paginator';
 import { Router } from '@angular/router';
@@ -29,6 +29,8 @@ const ELEMENT_DATA: MbmInfo[] = [
   styleUrls: ['./mbm-info.component.scss']
 })
 export class MbmInfoComponent implements OnInit, OnDestroy {
+
+  @Input() uid: string;
 
   user$: Observable<firebase.User>;
   user: firebase.User;
@@ -66,19 +68,28 @@ export class MbmInfoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.user$.subscribe( user => {
-      this.user = user;
-      if ( user ) {
-        this.mbmList$ = this.mbmFirebaseService.getMbmList( this.user.uid ).pipe(takeUntil(this.destroy$));
-        this.mbmList$.subscribe( list => {
-          if ( !environment.production ) {
-            console.table( list );
-          }
-          this.mbmList = list;
-          this.pageEvent.length = list.length;
-          this.dataSource = list.reverse();
-        });
+    if ( this.uid ) {
+      this.getMbmList();
+    } else {
+      this.user$.subscribe( user => {
+        this.user = user;
+        if ( user ) {
+          this.uid = user.uid;
+          this.getMbmList();
+        }
+      });
+    }
+  }
+
+  getMbmList() {
+    this.mbmList$ = this.mbmFirebaseService.getMbmList(this.uid ).pipe(takeUntil(this.destroy$));
+    this.mbmList$.subscribe( list => {
+      if ( !environment.production ) {
+        console.table( list );
       }
+      this.mbmList = list;
+      this.pageEvent.length = list.length;
+      this.dataSource = list.reverse();
     });
   }
 
