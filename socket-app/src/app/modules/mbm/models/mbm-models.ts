@@ -7,6 +7,7 @@ export interface MbmMessage {
   audio: number;
   spell: string;
   crc: string;
+  timestamp?: Object;
 }
 
 export interface DeviceInfo {

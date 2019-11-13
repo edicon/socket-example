@@ -1,5 +1,5 @@
 export interface MbmInfo {
-  date:  Object;
+  timestamp?: Object;
   start: string;
   type: string; // D/A
   size: number;

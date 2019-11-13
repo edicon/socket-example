@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppCoreModule } from './core/app-core.module';
 import { SocketModule } from './modules/socket/socket.module';
 
+import { MbmFirebaseService } from './modules/mbm/services/mbm-firebase.service';
+
 import { AppComponent } from './app.component';
 
 import { environment } from '@env/environment';
@@ -34,7 +36,8 @@ import { MbmInfoComponent } from './demo/device-info/mbm-info.component';
     AppCoreModule,
     SocketModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

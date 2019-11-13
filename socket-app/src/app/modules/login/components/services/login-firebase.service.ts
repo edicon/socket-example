@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth'
+import { AngularFireAuth } from '@angular/fire/auth';
 import { BasicDatabaseService } from '@core/services/fire-basic-database.service';
 import { AngularFireDatabase, AngularFireList, AngularFireAction, DatabaseSnapshot } from '@angular/fire/database';
 // RxJs

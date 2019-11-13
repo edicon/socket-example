@@ -16,6 +16,19 @@ export class MbmFirebaseService {
     this.mbm$ = this.mbmSubject$.asObservable();
    }
 
+  getMbmList( uid: string ): Observable<any[]> {
+    return this.database.getList( `/mbm/device/${uid}` );
+  }
+
+  geUserInfoList( uid: string ) {
+    return this.database.getSnapshot( `/mbm/userInfo` );
+  }
+
+  geUserInfo( uid: string ): Observable<any> {
+    return this.database.getSnapshot( `/mbm/userInfo/${uid}` );
+  }
+
+  // --------------------------------------- //
   getValue( url: string ): Observable<any> {
     return this.database.getValue( url );
   }

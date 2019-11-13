@@ -63,7 +63,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe( userInfo => {
         if ( userInfo ) {
-          this.router.navigate(['mbm']);
+          // this.router.navigate(['mbm']);
+          this.router.navigate(['demo']);
         } else {
           this.router.navigate(['login/userInfo']);
         }
