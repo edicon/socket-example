@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, Inject, ViewChild, Pipe } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatPaginator, MatTableDataSource, MatSort, MatSelectionListChange } from '@angular/material';
 import { PageEvent} from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -44,7 +45,10 @@ export class MbmInfoComponent implements OnInit, OnDestroy {
   pageEvent: PageEvent = new PageEvent();
   pageSizeOptions = [10, 20, 100];
 
+  isMobile: Boolean;
+
   constructor(
+    private router: Router,
     private angularFireAuth: AngularFireAuth,
     private mbmFirebaseService: MbmFirebaseService
     ) {
@@ -52,6 +56,7 @@ export class MbmInfoComponent implements OnInit, OnDestroy {
     if ( !environment.production ) {
       this.pageSizeOptions = [5, 10, 20, 100];
     }
+    this.isMobile = this.checkMobile();
     this.user$ = this.angularFireAuth.authState;
 
     this.pageEvent.pageSize = this.pageSizeOptions[0];
@@ -82,6 +87,18 @@ export class MbmInfoComponent implements OnInit, OnDestroy {
       console.log('page: ', pageEvent );
     }
     this.pageEvent = pageEvent;
+  }
+
+  checkMobile() {
+    if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      return true;
+    }
+    return false;
+  }
+
+  onLogout() {
+    this.angularFireAuth.auth.signOut()
+    .then( _ => this.router.navigate(['login']));
   }
 
   ngOnDestroy() {
