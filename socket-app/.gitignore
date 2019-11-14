@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 # Version
-/version/node_module
+/version/node_modules
