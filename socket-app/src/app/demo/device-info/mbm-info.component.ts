@@ -11,6 +11,7 @@ import { MbmFirebaseService } from '@modules/mbm/services/mbm-firebase.service';
 
 import { MbmInfo } from './mbm-models';
 import { environment } from '@env/environment';
+import { VERSION } from '@env/version';
 
 const ELEMENT_DATA: MbmInfo[] = [
   /*
@@ -48,6 +49,7 @@ export class MbmInfoComponent implements OnInit, OnDestroy {
   pageSizeOptions = [10, 20, 100];
 
   isMobile: Boolean;
+  version: any;
 
   constructor(
     private router: Router,
@@ -65,6 +67,7 @@ export class MbmInfoComponent implements OnInit, OnDestroy {
     this.pageEvent.pageSize = this.pageSizeOptions[0];
     this.pageEvent.length = this.dataSource.length;
     this.pageEvent.pageIndex = (this.pageEvent.pageIndex === undefined ? 0 : this.pageEvent.pageIndex);
+    this.version = VERSION;
   }
 
   ngOnInit() {

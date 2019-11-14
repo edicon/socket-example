@@ -9,6 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 import { UserInfo } from './../../models/userInfo';
 import { LoginFirebaseService } from './../services/login-firebase.service';
 import { environment } from '@env/environment';
+import { VERSION } from '@env/version';
 
 @Component({
   selector: 'app-login',
@@ -19,11 +20,15 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   userInfo: UserInfo;
   unsubscribe$ = new Subject<void>();
+  version: any;
+  env: any;
 
   constructor(
     private router: Router,
     private angularFireAuth: AngularFireAuth,
     private loginFirebase: LoginFirebaseService) {
+      this.version = VERSION;
+      this.env = environment;
     }
 
   ngOnInit() {

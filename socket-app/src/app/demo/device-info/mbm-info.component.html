@@ -1,7 +1,8 @@
 <div class="admin-container" fxLayout="column" fxLayoutAlign="space-between stretch">
   <div class="member-header"
     fxLayout="row" fxLayoutAlign="space-between center">
-    <p fxFlex >학습 목록: 총 <strong class="list-count">{{dataSource?.length}}</strong></p>
+    <p>학습 목록: 총 <strong class="list-count">{{dataSource?.length}}</strong></p>
+    <p class="version"> v{{version.version}}</p>
     <button *ngIf="!isMobile" mat-stroked-button (click)="onLogout()">Logout</button>
   </div>
 

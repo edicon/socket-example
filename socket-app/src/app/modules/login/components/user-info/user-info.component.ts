@@ -47,7 +47,7 @@ export class UserInfoComponent implements OnInit {
         this.loginFirebaseService.updateUserInfo$( user.uid, this.userInfo )
           .then( _ => {
             this.matUtilsService.openSnackBar('사용자 정보가 등록 되었습니다.', '', 2);
-            this.router.navigate(['mbm']);
+            this.router.navigate([`demo/${user.uid}`]);
           })
           .catch( error => console.warn(error ));
       } else {
@@ -58,7 +58,11 @@ export class UserInfoComponent implements OnInit {
   }
 
   onCancelUserInfo() {
-    this.router.navigate(['mbm']);
+    const user = this.loginFirebaseService.user;
+    if ( !user ) {
+      this.router.navigate([`demo/${user.uid}`]);
+      // this.router.navigate(['mbm']);
+    }
   }
 
   checkUserInfo( userInfo: UserInfo ) {

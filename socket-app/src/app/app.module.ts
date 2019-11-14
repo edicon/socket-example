@@ -1,10 +1,11 @@
-import { AppMaterialModule } from '@core/modules/app-material.module';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
+import { AppMaterialModule } from '@core/modules/app-material.module';
 import { AngularFireModule } from '@angular/fire';
 import { AppRoutingModule } from './app-routing.module';
 import { AppCoreModule } from './core/app-core.module';
@@ -37,6 +38,7 @@ import { MbmInfoComponent } from './demo/device-info/mbm-info.component';
     SocketModule
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
